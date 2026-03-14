@@ -79,7 +79,7 @@ export function Nav() {
         </div>
 
         {/* Mobile menu */}
-        <NavbarMenu>
+        <NavbarMenu open={menuOpen} onOpenChange={setMenuOpen}>
           <div className="flex flex-col gap-1 px-2">
             {navMenu.map((item) => (
               <a
