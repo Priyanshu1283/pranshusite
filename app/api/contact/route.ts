@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { validateContactPayload } from "@/validations/contactSchema";
 import { getClientIp, rateLimit } from "@/utils/rateLimiter";
 import { createMessage } from "@/services/messageService";
-import { sendContactNotification } from "@/services/email";
+import { sendContactNotification, sendConfirmationToUser } from "@/services/email";
 
 /**
  * POST /api/contact
@@ -43,6 +43,7 @@ export async function POST(req: NextRequest) {
   try {
     await createMessage(data);
     await sendContactNotification(data);
+    await sendConfirmationToUser(data);
     return NextResponse.json({
       success: true,
       message: "Message sent successfully.",

@@ -47,6 +47,35 @@ body {
   animation: sparkle 2s ease-in-out infinite alternate;
 }
 
+/* Custom cursor — desktop only (body class added by JS) */
+body.custom-cursor-active {
+  cursor: none;
+}
+
+body.custom-cursor-active a,
+body.custom-cursor-active button {
+  cursor: none;
+}
+
+/* Click ripple animation */
+@keyframes cursor-ripple {
+  0% {
+    transform: translate(-50%, -50%) scale(0.6);
+    opacity: 1;
+    border-color: rgba(34, 211, 238, 0.9);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(4);
+    opacity: 0;
+    border-color: rgba(34, 211, 238, 0);
+  }
+}
+
+.animate-cursor-ripple {
+  animation: cursor-ripple 0.6s ease-out forwards;
+  pointer-events: none;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;

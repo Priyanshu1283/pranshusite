@@ -3,18 +3,18 @@
  */
 
 export const site = {
-  name: "Your Name",
-  title: "Full Stack Developer",
-  tagline: "Crafting digital experiences with code.",
+  name: "Priyanshu Kumar",
+  title: "MERN Stack Developer",
+  tagline: "React · Next.js · Node.js · MongoDB · Tailwind CSS ",
   email: "priyanshukumarbgs066@gmail.com",
+  /** Add public/resume.pdf when ready; # avoids broken link */
   resumeUrl: "/resume.pdf",
-};
+};  
 
 export const landingPhrases = [
-  "Welcome to My Portfolio",
-  "Hello Developers",
-  "Crafting Digital Experiences",
-  "Full Stack Engineer",
+  "Available for opportunities",
+  "MERN · React · Next.js",
+  "Let’s build together",
 ];
 
 export const about = {
@@ -59,84 +59,102 @@ export const certifications = [
     issuer: "Sheryians Coding School",
     description:
       "FrontEnd main React library aur Next.js Framework se sikh raha hu. Aur basic HTML, CSS to aati hai. Additional cheezo mein Tailwind CSS ka use karta hu.",
-    image: undefined as string | undefined, // e.g. "/certificates/frontend-domination.jpg" — add image to public/certificates/
+    image: "/certificates/FrontEnd.png",
   },
   {
     id: "2",
     title: "AWS Certified Developer",
     issuer: "Amazon Web Services",
     description: "Validates ability to develop and maintain applications on AWS.",
-    image: undefined as string | undefined,
+    image: "/certificates/AWS.png",
   },
   {
     id: "3",
-    title: "Meta Front-End Developer",
-    issuer: "Meta",
-    description: "Professional certificate in front-end development.",
-    image: undefined as string | undefined,
+    title: "Salesforce Certified",
+    issuer: "Salesforce",
+    description: "Professional certificate in Salesforce development and administration.",
+    image: "/certificates/Salesforce.png",
   },
   {
     id: "4",
-    title: "Google Cloud Professional",
-    issuer: "Google Cloud",
-    description: "Cloud architecture and development.",
-    image: undefined as string | undefined,
+    title: "Cohort Program",
+    issuer: "Sheryians Coding School",
+    description: "Advanced cohort-based learning and certification.",
+    image: "/certificates/Cohort.png",
+  },
+  {
+    id: "5",
+    title: "AgentForce",
+    issuer: "Salesforce",
+    description: "AgentForce certification for AI and automation.",
+    image: "/certificates/AgentForce.png",
+  },
+  {
+    id: "6",
+    title: "IoT Certification",
+    issuer: "PMKVY",
+    description: "Internet of Things fundamentals and applications.",
+    image: "/certificates/IOT.png",
+  },
+  {
+    id: "7",
+    title: "Salesforce PD1",
+    issuer: "Salesforce",
+    description: "Salesforce Platform Developer I certification.",
+    image: "/certificates/Salesforce_PD1.png",
   },
 ];
 
 export const projects = [
   {
     id: "1",
-    title: "E-Commerce Platform",
-    shortDescription: "Full-stack e-commerce with payments and admin dashboard.",
+    title: "TMDB Movie App",
+    shortDescription: "Movie discovery app using TMDB API with search and details.",
     fullDescription:
-      "A modern e-commerce solution with Stripe payments, inventory management, and a responsive admin dashboard. Built with Next.js and Node.js.",
-    image: "/projects/project-1.jpg",
-    techStack: ["Next.js", "Node.js", "MongoDB", "Stripe", "Tailwind"],
-    visitLink: "https://example.com",
-    githubLink: "https://github.com/example/repo1",
+      "A movie discovery application built with React/Next.js, featuring search, trending movies, and detailed movie information using the TMDB API.",
+    image: "/projects/tmdb.png",
+    techStack: ["React", "Next.js", "TMDB API", "Tailwind"],
+    visitLink: "https://plotify-mmdb.vercel.app/",
+    githubLink: "https://github.com/Priyanshu1283/Plotify_MMDB",
   },
   {
     id: "2",
-    title: "Real-Time Dashboard",
-    shortDescription: "Live analytics and monitoring with WebSockets.",
+    title: "SocySync",
+    shortDescription: "Social sync platform for connecting and sharing.",
     fullDescription:
-      "Real-time data visualization dashboard with WebSocket updates, charts, and alerts. Used for monitoring system metrics.",
-    image: "/projects/project-2.jpg",
-    techStack: ["React", "Socket.io", "D3.js", "Express"],
+      "A social platform enabling users to connect, share content, and sync with their networks. Built with modern full-stack technologies.",
+    image: "/projects/socySync.png",
+    techStack: ["React", "Node.js", "MongoDB", "Express"],
     visitLink: "https://example.com",
-    githubLink: "https://github.com/example/repo2",
+    githubLink: "https://github.com/Priyanshu1283/SocietySync",
   },
   {
     id: "3",
-    title: "Portfolio Generator",
-    shortDescription: "Template-based portfolio generator with CMS.",
+    title: "Weather App",
+    shortDescription: "Real-time weather information and forecasts.",
     fullDescription:
-      "Generate and customize portfolio sites from templates with a simple CMS and deploy to Vercel.",
-    image: "/projects/project-3.jpg",
-    techStack: ["Next.js", "TypeScript", "Vercel", "MDX"],
-    visitLink: "https://example.com",
-    githubLink: "https://github.com/example/repo3",
+      "Weather application providing current conditions and forecasts. Clean UI with location-based weather data.",
+    image: "/projects/Weather.png",
+    techStack: ["React", "Weather API", "Tailwind"],
+    visitLink: "https://weather-now-ai-seven.vercel.app/",
+    githubLink: "https://github.com/Priyanshu1283/WeatherNowAi",
   },
 ];
 
 export const galleryItems = [
-  { id: "1", src: "/gallery/1.jpg", alt: "UI experiment", title: "UI Experiment" },
-  { id: "2", src: "/gallery/2.jpg", alt: "Code art", title: "Code Art" },
-  { id: "3", src: "/gallery/3.jpg", alt: "3D scene", title: "3D Scene" },
-  { id: "4", src: "/gallery/4.jpg", alt: "Animation", title: "Animation" },
-  { id: "5", src: "/gallery/5.jpg", alt: "Dashboard", title: "Dashboard" },
-  { id: "6", src: "/gallery/6.jpg", alt: "Design", title: "Design" },
+  { id: "1", src: "/images/gallery/prannshu.jpg", alt: "Priyanshu", title: "Priyanshu" },
+  { id: "2", src: "/images/gallery/prannshu.jpg", alt: "Gallery", title: "Gallery" },
+  { id: "3", src: "/images/gallery/prannshu.jpg", alt: "Portfolio", title: "Portfolio" },
 ];
 
 export const socialLinks = [
   { name: "Email", href: "mailto:hello@example.com", icon: "email" },
-  { name: "LinkedIn", href: "https://linkedin.com/in/yourprofile", icon: "linkedin" },
-  { name: "GitHub", href: "https://github.com/yourprofile", icon: "github" },
-  { name: "Instagram", href: "https://instagram.com/yourprofile", icon: "instagram" },
-  { name: "Telegram", href: "https://t.me/yourprofile", icon: "telegram" },
-  { name: "Snapchat", href: "https://snapchat.com/add/yourprofile", icon: "snapchat" },
-  { name: "Twitter", href: "https://twitter.com/yourprofile", icon: "twitter" },
+  { name: "LinkedIn", href: "https://www.linkedin.com/in/priyanshu-kumar-03310a253/", icon: "linkedin" },
+  { name: "GitHub", href: "https://github.com/Priyanshu1283", icon: "github" },
+  // { name: "Instagram", href: "https://instagram.com/yourprofile", icon: "instagram" },
+  { name: "Leetcode", href: "https://leetcode.com/u/Pranshu_066/", icon: "code" },
+  // { name: "Snapchat", href: "https://snapchat.com/add/yourprofile", icon: "snapchat" },
+  { name: "Twitter", href: "https://x.com/ShivamS89004941", icon: "twitter" },
 ];
 
 export const navMenu = [
@@ -150,10 +168,10 @@ export const navMenu = [
 ];
 
 export const navSocial = [
-  { label: "LinkedIn", href: "https://linkedin.com/in/yourprofile" },
-  { label: "GitHub", href: "https://github.com/yourprofile" },
-  { label: "Leetcode", href: "https://leetcode.com/yourprofile" },
-  { label: "Twitter", href: "https://twitter.com/yourprofile" },
-  { label: "Instagram", href: "https://instagram.com/yourprofile" },
-  { label: "Telegram", href: "https://t.me/yourprofile" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/priyanshu-kumar-03310a253/" },
+  { label: "GitHub", href: "https://github.com/Priyanshu1283" },
+  { label: "Leetcode", href: "https://leetcode.com/u/Pranshu_066/" },
+  { label: "Twitter", href: "https://x.com/ShivamS89004941" },
+  // { label: "Instagram", href: "https://instagram.com/yourprofile" },
+  // { label: "Telegram", href: "https://t.me/yourprofile" },
 ];

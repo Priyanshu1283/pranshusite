@@ -57,9 +57,17 @@ export function Projects() {
                   suppressHydrationWarning
                 >
                   <div className="aspect-video bg-slate-800 rounded-t-2xl overflow-hidden">
-                    <div className="w-full h-full bg-gradient-to-br from-cyan-500/20 to-blue-500/20 flex items-center justify-center">
-                      <span className="text-slate-500 text-sm">Project image</span>
-                    </div>
+                    {project.image ? (
+                      <img
+                        src={project.image}
+                        alt={project.title}
+                        className="w-full h-full object-cover"
+                      />
+                    ) : (
+                      <div className="w-full h-full bg-gradient-to-br from-cyan-500/20 to-blue-500/20 flex items-center justify-center">
+                        <span className="text-slate-500 text-sm">Project image</span>
+                      </div>
+                    )}
                   </div>
                   <div className="p-5">
                     <h3 className="text-lg font-semibold text-white mb-2">{project.title}</h3>
@@ -92,6 +100,15 @@ export function Projects() {
               onClick={(e) => e.stopPropagation()}
             >
               <div className="p-6">
+                {modalProject.image && (
+                  <div className="aspect-video rounded-xl overflow-hidden mb-4 bg-slate-800">
+                    <img
+                      src={modalProject.image}
+                      alt={modalProject.title}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                )}
                 <div className="flex items-start justify-between gap-4 mb-4">
                   <h3 className="text-xl font-semibold text-white">{modalProject.title}</h3>
                   <button

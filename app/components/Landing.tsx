@@ -1,85 +1,106 @@
 "use client";
 
-import dynamic from "next/dynamic";
 import Link from "next/link";
 import { motion } from "motion/react";
-import { useRef, useEffect } from "react";
-import gsap from "gsap";
 import { TextType } from "@/app/components/ui/textType";
-import { Button } from "@/app/components/ui/button_moving_border";
 import { site, landingPhrases } from "@/data/portfolio";
-
-const HeroScene = dynamic(
-  () => import("@/app/components/three/HeroScene").then((m) => ({ default: m.HeroScene })),
-  { ssr: false, loading: () => <div className="absolute inset-0 z-0 bg-[var(--bg-primary)]" /> }
-);
+import { cn } from "@/lib/utils";
+import { ArrowRight, FileDown } from "lucide-react";
+import { Boxes } from "@/app/components/ui/background-boxes";
 
 export function Landing() {
-  const sectionRef = useRef<HTMLElement>(null);
-  const titleRef = useRef<HTMLHeadingElement>(null);
-  const nameRef = useRef<HTMLHeadingElement>(null);
-  const taglineRef = useRef<HTMLParagraphElement>(null);
-  const ctaRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.fromTo(
-        titleRef.current,
-        { opacity: 0, y: 40 },
-        { opacity: 1, y: 0, duration: 0.8, ease: "power3.out" }
-      );
-      gsap.fromTo(
-        [nameRef.current, taglineRef.current].filter(Boolean),
-        { opacity: 0, y: 24 },
-        { opacity: 1, y: 0, duration: 0.8, delay: 0.2, stagger: 0.05, ease: "power3.out" }
-      );
-      gsap.fromTo(
-        ctaRef.current?.children ?? [],
-        { opacity: 0, y: 20 },
-        { opacity: 1, y: 0, duration: 0.5, stagger: 0.1, delay: 0.5, ease: "power2.out" }
-      );
-    }, sectionRef);
-    return () => ctx.revert();
-  }, []);
-
   return (
     <section
       id="landing"
-      ref={sectionRef}
-      className="relative min-h-screen flex flex-col items-center justify-center px-4 overflow-hidden"
+      className="relative isolate flex min-h-[100dvh] flex-col justify-center overflow-hidden bg-[var(--bg-primary)] px-5 pt-20 pb-36 sm:px-8 sm:pb-40"
     >
-      <HeroScene />
-      <div className="absolute inset-0 bg-gradient-to-b from-[var(--bg-primary)]/60 via-transparent to-[var(--bg-primary)]/80 z-10 pointer-events-none" />
-      <div className="relative z-20 text-center max-w-4xl mx-auto">
-        <h1
-          ref={titleRef}
-          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4"
+      <Boxes />
+
+      {/* Halka overlay — grid + colored squares dikhen, text readable; bg apna --bg-primary */}
+      <div
+        className="pointer-events-none absolute inset-0 z-[1] bg-[var(--bg-primary)]/25"
+        aria-hidden
+      />
+      <div
+        className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-b from-[var(--bg-primary)]/15 via-transparent to-[var(--bg-primary)]/60"
+        aria-hidden
+      />
+
+      <div className="relative z-20 mx-auto flex w-full max-w-2xl flex-col items-center text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+          className="flex w-full flex-col items-center"
         >
-          <TextType phrases={landingPhrases} className="text-cyan-400" />
-        </h1>
-        <h2 ref={nameRef} className="text-2xl sm:text-3xl md:text-4xl text-white font-semibold mb-2">
-          {site.name}
-        </h2>
-        <p ref={taglineRef} className="text-slate-400 text-lg md:text-xl mb-8">
-          {site.title} · {site.tagline}
-        </p>
-        <div ref={ctaRef} className="flex flex-wrap items-center justify-center gap-4">
-          <a href={site.resumeUrl} download>
-            <Button borderRadius="0.5rem" className="bg-[var(--bg-card)]">
-              Download Resume
-            </Button>
-          </a>
-          <Link href="#projects">
-            <motion.span
-              className="inline-flex items-center px-6 py-3 rounded-lg border border-cyan-500/40 text-cyan-400 font-medium hover:bg-cyan-500/10 transition-colors"
+          <div className="mb-5 min-h-[2.5rem] sm:min-h-[2.75rem] flex items-center justify-center px-2">
+            <span className="inline-block max-w-[95vw] rounded-full border border-cyan-500/25 bg-cyan-500/10 px-4 py-2 text-sm font-medium text-cyan-300 shadow-sm sm:text-base">
+              <TextType
+                phrases={landingPhrases}
+                className="text-cyan-300"
+                typingSpeed={55}
+                pauseDuration={2200}
+              />
+            </span>
+          </div>
+
+          <h1 className="mb-3 text-4xl font-bold tracking-tight text-white sm:text-5xl md:text-6xl lg:text-7xl">
+            {site.name}
+          </h1>
+
+          <p className="mb-2 text-base font-medium text-slate-200 sm:text-lg md:text-xl">
+            {site.title}
+          </p>
+          <p className="mb-10 max-w-lg text-sm leading-relaxed text-slate-400 sm:text-base">
+            {site.tagline}
+          </p>
+
+          <div className="flex w-full max-w-md flex-col gap-3 sm:max-w-none sm:flex-row sm:justify-center sm:gap-4">
+            <motion.a
+              href={site.resumeUrl}
+              download
+              className={cn(
+                "inline-flex h-12 flex-1 items-center justify-center gap-2 rounded-xl px-6",
+                "bg-cyan-500 font-semibold text-[#0a0a0f] shadow-lg shadow-cyan-500/25",
+                "hover:bg-cyan-400",
+                "sm:flex-initial sm:min-w-[180px]"
+              )}
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
-              Explore Projects
-            </motion.span>
-          </Link>
-        </div>
+              <FileDown className="h-4 w-4" />
+              Resume
+            </motion.a>
+            <Link
+              href="#projects"
+              className={cn(
+                "inline-flex h-12 flex-1 items-center justify-center gap-2 rounded-xl px-6",
+                "border border-white/20 bg-white/5 font-medium text-white",
+                "hover:border-cyan-500/40 hover:bg-white/10",
+                "sm:flex-initial sm:min-w-[180px]"
+              )}
+            >
+              View work
+              <ArrowRight className="h-4 w-4 opacity-90" />
+            </Link>
+          </div>
+        </motion.div>
       </div>
+
+      <a
+        href="#about"
+        className="absolute bottom-16 left-1/2 z-20 flex -translate-x-1/2 flex-col items-center gap-2 text-slate-400 transition hover:text-cyan-400 sm:bottom-20 md:bottom-24"
+        aria-label="About section"
+      >
+        <span className="text-[11px] font-medium uppercase tracking-[0.2em]">About</span>
+        <span className="relative flex h-11 w-7 justify-center rounded-full border border-white/20 bg-white/5 pt-2">
+          <motion.span
+            className="h-2 w-1 rounded-full bg-cyan-400"
+            animate={{ y: [0, 10, 0], opacity: [1, 0.35, 1] }}
+            transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
+          />
+        </span>
+      </a>
     </section>
   );
 }
