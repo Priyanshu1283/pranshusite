@@ -1,0 +1,61 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+}
+
+/* Smooth scroll for anchor navigation */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Base theme - dark modern developer */
+:root {
+  --bg-primary: #0a0a0f;
+  --bg-secondary: #12121a;
+  --bg-card: #16161f;
+  --accent-cyan: #22d3ee;
+  --accent-blue: #3b82f6;
+  --accent-white: #f8fafc;
+  --text-primary: #f1f5f9;
+  --text-muted: #94a3b8;
+  --border-subtle: rgba(255, 255, 255, 0.06);
+  --glow-cyan: rgba(34, 211, 238, 0.4);
+  --glow-blue: rgba(59, 130, 246, 0.3);
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-feature-settings: "rlig" 1, "calt" 1;
+}
+
+/* Reduce motion for accessibility */
+@keyframes sparkle {
+  from {
+    opacity: 0.3;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 0.8;
+    transform: scale(1.2);
+  }
+}
+
+.animate-sparkle {
+  animation: sparkle 2s ease-in-out infinite alternate;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
