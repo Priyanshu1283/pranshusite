@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
 import "./globals.css";
-import { CustomCursor } from "@/app/components/ui/custom-cursor";
 import { site, navSocial } from "@/data/portfolio";
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://pranshusite.vercel.app";
@@ -105,7 +104,6 @@ export default function RootLayout({
           }}
         />
         {children}
-        <CustomCursor />
       </body>
     </html>
   );
