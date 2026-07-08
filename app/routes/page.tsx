@@ -15,12 +15,16 @@ export default function RoutesPage() {
         <div className="bg-[var(--bg-card)] rounded-2xl border border-white/10 p-6 mb-6 shadow-xl">
           <p className="text-sm text-slate-400 mb-2">UPI ID</p>
           <p className="text-lg font-mono text-cyan-400 break-all">
-            your.name@upi
+            8102346798@ptyes
           </p>
-          <div className="mt-4 w-40 h-40 mx-auto bg-slate-800 rounded-lg flex items-center justify-center border border-white/10">
-            <span className="text-slate-500 text-sm">QR Image</span>
+          <div className="mt-4 w-40 h-40 mx-auto bg-white rounded-lg overflow-hidden flex items-center justify-center border border-white/10 p-2">
+            <img
+              src="/images/gallery/upiId.png"
+              alt="UPI QR Code"
+              className="w-full h-full object-contain"
+            />
           </div>
-          <p className="mt-3 text-sm text-slate-400">Name on UPI</p>
+          <p className="mt-3 text-sm text-slate-400">Priyanshu Kumar</p>
         </div>
         <Link
           href="/"
